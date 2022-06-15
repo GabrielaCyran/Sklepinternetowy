@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<style>
+
+		
+
+.btn {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+
+  footer {
+    height: 100px;
+    clear: both;
+    text-align: center;
+    padding: 30px 10px 0px 10px;
+    border-style:hidden;
+
+    background-attachment: fixed;
+    background-image:url("{%  static 'd.jpg' %}");
+    background-size: cover;
+			background-repeat: no-repeat;
+			opacity:0.8;
+			z-index: 100;
+
+   
+    font-family: 'Times New Roman', Times, serif;
+    
+   
+}
+footer p{
+    text-align: center;
+    margin: 0px;
+    font-family: 'Times New Roman', Times, serif;
+}
+nav {
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    background-color: rgba(26, 23, 23, 0.5) ;  
+  }
+
+
+		.background-image {
+			min-height: calc(100vh - 56px);
+			background-image: url("{%  static 'd.jpg' %}");
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: 100;
+		}
+    .navbar {
+		
+			z-index: 9;
+			font-family:Arial, Helvetica, sans-serif
+      
+		}
+
+		.navbar::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			-webkit-backdrop-filter: blur(7px);
+			backdrop-filter: blur(7px);
+			z-index: -1;
+		}
+
+		.dropdown-menu {
+			background-color: rgba(255, 255, 255, 0.1);
+			z-index: 100;
+			padding: 0 !important;
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+		.dropdown-menu li a {
+			padding: .5rem 1rem;
+		}
+
+		.dropdown-menu::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			-webkit-backdrop-filter: blur(7px);
+			backdrop-filter: blur(7px);
+			z-index: -1;
+		}
+
+  img {
+  border-radius: 70%;
+  size: 50%;
+
+  opacity: 0.7
+
+  
+
+}
+
+input { border-radius: 1rem !important }
+    input { border-radius: 1rem !important;  }
+    input,textarea { border-radius: 1rem !important ;background-color: rgba(255, 255, 255, 0.982);}
+.card{
+  -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.439); 
+    border-radius: 80;
+    margin-top: auto;
+    margin-left: 30;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 4%;
+    padding-top: 4%;
+	border-radius: 10%;
+}
+
+  card-body{
+   
+  
+    box-sizing:content-box;
+    tab-size: 200;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    
+    
+    padding-bottom: 4%;
+    padding-top: 4%;
+ 
+  }
+  .card{
+  -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.439); 
+    border-radius: 80;
+  
+    margin-left: 10%;
+	margin-right: 10%;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+    padding-top: 0%;}
+
+
+
+  .card-title{
+	font-family:Arial, Helvetica, sans-serif;
+    color:rgb(83, 87, 83);
+  
+  }
+
+	</style>
+</head>
+
+<body>
+
+
+	
+	<div class="background-image"> 
+		<nav class="navbar navbar-expand-lg navbar-light bg-transparent  ">
+		  <div class="container-fluid">
+			<a class="navbar-brand text-black" href="{% url 'index' %}">TEGA</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			  aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#"></a>
+				</li>
+	
+				<li class="nav-item">
+				  <a class="nav-link text-black" href="{% url 'produkty' %}">Produkty</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link text-black" href="{% url 'kontakt' %}">Kontakt</a>
+				</li>
+		   
+				<li class="nav-item dropdown  me-auto">
+				  <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdown" role="button"
+					data-bs-toggle="dropdown" aria-expanded="false">
+					Kategorie
+				  </a>
+				  <ul class="dropdown-menu bg-transparent text-black" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item text-black" href="{% url 'tworzywa_sztuczne' %}">Tworzywa Sztuczne</a></li>
+					<li><a class="dropdown-item text-black" href="{% url 'metal' %}">Metal</a></li>
+					<li>
+	
+	
+	
+				  </ul>
+	
+				</li>
+				</li>
+		  
+				<li class="nav-item">
+				  <a class="nav-link text-black" href="{% url 'rejestracja' %}">Rejestracja</a>
+				</li>
+				</br>
+				<li class="nav-item">
+				  <a class="nav-link text-black " href="{% url 'logowanie' %}"> <i
+					  class="bi bi-box-arrow-in-right">Logowanie <svg xmlns="http://www.w3.org/2000/svg"
+						width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right"
+						viewBox="0 0 16 16">
+						<path fill-rule="evenodd"
+						  d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+						<path fill-rule="evenodd"
+						  d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+					  </svg></i></a>
+				</li>
+	
+				<li class="nav-item">
+				  <a class="nav-link  text-black" href="{% url 'profil' %}"> <i class="bi bi-person"> <svg
+						xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+						class="bi bi-person" viewBox="0 0 16 16">
+						<path
+						  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+					  </svg></i></a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link text-black " href="{% url 'koszyk' %}"><i class="bi bi-cart"> <svg
+						xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+						class="bi bi-cart" viewBox="0 0 16 16">
+						<path
+						  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+					  </svg></i></a>
+				</li>
+			  </ul>
+			</div>
+		  </div> 
+		</nav>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+		<div class="card text-center background-img">
+			<div class="container-fluid ">
+				<h5 class=" text-black-50 ">Logowanie</h5>
+				<div class="card-body">
+		  
+					  {% block content %} {% for message in messages %}
+					  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+						  <strong>Message: </strong>{{message}}
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+						  </button>
+					  </div>
+		  
+					  {% endfor %}
+			  
+		  
+		  
+					<form method="POST" action="">
+					  {% csrf_token %}
+			  
+					  <label>Nazwa:</label>
+					  <input type="text" name="username" placeholder="Enter Username"/>
+					  <br>
+					  <br>
+		  
+					  <label>Hasło:</label>
+					  <input type="password" name="password" placeholder="Enter Password"/>
+					   <br>
+					   <br>
+					   
+				  
+					  <input type="submit" value="Login"/>
+				  </form>
+					  
+		  
+							  </form>
+		  
+							  </form>
+							  <br></br>
+		  
+							  <h6 ><i class="bi bi-question"> Nie masz jeszcze konta</i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question" viewBox="0 0 16 16">
+								  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+								</svg>  </h6>
+		  
+							  <form class="container-fluid justify-content-start">
+								  <a class="link-dark text-center" href="{% url 'rejestracja' %}">
+									  <button class="btn btn-outline-dark" type="button"><i class="bi bi-exclamation-lg">Zarejestruj się<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-lg" viewBox="0 0 16 16">
+										  <path d="M7.005 3.1a1 1 0 1 1 1.99 0l-.388 6.35a.61.61 0 0 1-1.214 0L7.005 3.1ZM7 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"/>
+										</svg></i></button>
+								  </a>
+		  
+							  </form>
+		  
+						  </div>
+					  </div>
+		  
+		  
+					  {% endblock %}
+				  </div>
+		  
+			  </div>
+		  
+		  
+		  
+
+
+
+		</div>
+	  </div></div>
+ </div>
+
+ 
+
+
+
+</script>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+crossorigin="anonymous"></script>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+      crossorigin="anonymous"></script>
+     
+</body>
+<footer   >
+  
+	<h5> Tega Baby Kiczury 12, 38-500 Sanok</h5>
+  </footer>
+
+</html>
